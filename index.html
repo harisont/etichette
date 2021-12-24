@@ -1,0 +1,53 @@
+<head>
+    <title>Etichette</title>
+    <script>
+        function fun() {  
+            var text = document.getElementById("text").value
+            var n = document.getElementById("n").value
+            var logo = "<img src=" + document.getElementById("logo").value + ">"
+            
+            // TODO: get logo
+
+            var data = [];
+            for (let i = 1; i <= n; i++) {
+                data.push(i + "<br>" + logo + "<br>" + text) // TODO: add logo
+            }
+            var table = "<table><tr>";
+            data.forEach((value, i) => {
+                table += `<td>${value}</td>`; 
+                var next = i + 1;
+                if (next%3==0 && next!=data.length) { table += "</tr><tr>"; }
+            });
+        table += "</tr></table>";
+ 
+        // (D) ATTACH HTML TO CONTAINER
+        document.getElementById("body").innerHTML = table;
+        }
+    </script> 
+    <style>
+        @media screen, print {
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            td {
+                border: 0.1px solid black;
+                text-align: center;
+                height: 3.65cm;
+            }
+            img {
+                max-height: 1cm;
+            }
+        }
+    </style>
+</head>
+
+<body id="body">
+    <label for="text">Testo:</label>
+    <input type="text" id="text" name="text"><br><br>
+    <label for="n">Numero etichette:</label>
+    <input type="number" id="n" name="n"><br><br>
+    <label for="logo">Logo (link):</label>
+    <input type="text" id="logo" name="logo"><br><br>
+    <button onclick="fun()">Genera etichette</button>
+</body>
