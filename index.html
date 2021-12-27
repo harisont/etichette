@@ -6,8 +6,6 @@
             var n = document.getElementById("n").value
             var logo = "<img src=" + document.getElementById("logo").value + ">"
             
-            // TODO: get logo
-
             var data = [];
             for (let i = 1; i <= n; i++) {
                 data.push(i + "<br>" + logo + "<br>" + text) // TODO: add logo
@@ -31,13 +29,16 @@
                 border-collapse: collapse;
             }
             td {
-                border: 0.1px solid black;
                 text-align: center;
                 height: 3.65cm;
             }
             img {
-                max-height: 1cm;
+                max-height: 1.30cm;
             }
+            body {
+                font-family: "Times New Roman", Times, serif;     
+                font-size: 12;
+            }   
         }
     </style>
 </head>
